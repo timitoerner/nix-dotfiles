@@ -15,7 +15,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ../modules/hyprland
-    ../modules/librewolf
+    #../modules/librewolf
   ];
 
   nixpkgs = {
@@ -50,7 +50,7 @@
   # home.packages = with pkgs; [ steam ];
 
   modules.hyprland.enable = true;
-  modules.librewolf.enable = true;
+  #modules.librewolf.enable = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
