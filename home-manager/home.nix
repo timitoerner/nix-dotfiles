@@ -15,6 +15,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ../modules/hyprland
+    ../modules/git
     #../modules/librewolf
   ];
 
@@ -50,15 +51,16 @@
   # home.packages = with pkgs; [ steam ];
 
   modules.hyprland.enable = true;
+  modules.git.enable = true;
   #modules.librewolf.enable = true;
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "timitoerner";
-    userEmail = "timitoerner@public.email.basis107@aleeas.com";
-  };
+  #programs.git = {
+  #  enable = true;
+  #  userName = "timitoerner";
+  #  userEmail = "timitoerner@public.email.basis107@aleeas.com";
+  #};
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
