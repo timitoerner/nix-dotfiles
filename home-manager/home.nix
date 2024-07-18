@@ -14,8 +14,9 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ../modules/hyprland
-    ../modules/git
+    ../modules/home-manager/hyprland
+    #../modules/virt-manager
+    ../modules/home-manager/git
     #../modules/librewolf
   ];
 
@@ -50,9 +51,12 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
-  modules.hyprland.enable = true;
-  modules.git.enable = true;
-  #modules.librewolf.enable = true;
+  modules = {
+    hyprland.enable = true;
+    #virt-manager.enable = true;
+    git.enable = true;
+    #librewolf.enable = true;
+  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
