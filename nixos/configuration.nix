@@ -36,7 +36,7 @@
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
-      allowUnfree = true;
+      #allowUnfree = true;
     };
   };
 
@@ -112,7 +112,8 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     neovim
-    git
+    tree
+    dust
   #  wget
   ];
 
