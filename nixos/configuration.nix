@@ -18,6 +18,8 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    
+    ../modules/nixos/virt-manager
   ];
 
   nixpkgs = {
@@ -105,7 +107,11 @@
       description = "Tim";
       packages = with pkgs; [];
       openssh.authorizedKeys.keys = [];
-      extraGroups = ["wheel" "networkmanager"];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "libvirtd"
+      ];
     };
   };
 
@@ -116,6 +122,8 @@
     dust
   #  wget
   ];
+
+  modules.virt-manager.enable = true;
 
 
   # This setups a SSH server. Very important if you're setting up a headless system.
