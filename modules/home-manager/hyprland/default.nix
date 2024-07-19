@@ -12,6 +12,7 @@ in {
       swww 
       waybar
       alacritty
+      wl-clipboard
       
       jetbrains-mono
       (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
