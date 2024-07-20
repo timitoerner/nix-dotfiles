@@ -4,10 +4,7 @@
   inputs,
   lib,
   config,
-  pkgs,
-  ...
-}: {
-  # You can import other NixOS modules here
+  pkgs, ... }: { # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -68,6 +65,8 @@
     grub.efiSupport = true;
     grub.device = "nodev";
   };
+  # Without this makemkv does not work
+  boot.kernelModules = [ "sg" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -96,6 +95,8 @@
     variant = "";
   };
 
+  hardware.bluetooth.enable = true;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -121,6 +122,8 @@
         "wheel"
         "networkmanager"
         "libvirtd"
+        "cdrom"
+        "disk"
       ];
     };
   };
