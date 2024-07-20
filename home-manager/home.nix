@@ -15,7 +15,6 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ../modules/home-manager/hyprland
-    #../modules/virt-manager
     ../modules/home-manager/git
     #../modules/librewolf
   ];
@@ -36,9 +35,9 @@
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
-      allowUnfree = true;
+      #allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
+      #allowUnfreePredicate = _: true;
     };
   };
 
@@ -53,18 +52,12 @@
 
   modules = {
     hyprland.enable = true;
-    #virt-manager.enable = true;
     git.enable = true;
     #librewolf.enable = true;
   };
 
-  # Enable home-manager and git
+  # Enable home-manager
   programs.home-manager.enable = true;
-  #programs.git = {
-  #  enable = true;
-  #  userName = "timitoerner";
-  #  userEmail = "timitoerner@public.email.basis107@aleeas.com";
-  #};
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
