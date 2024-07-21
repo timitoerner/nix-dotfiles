@@ -24,5 +24,7 @@ in {
     ];
 
     home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
+    home.file.".config/waybar/config".source = ./waybar/config;
+    home.file.".config/waybar/style.css".source = ./waybar/style.css;
   };
 }
