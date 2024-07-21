@@ -6,6 +6,11 @@ let cfg = config.modules.hyprland;
 in {
   options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
   config = mkIf cfg.enable {
+    wayland.windowManager.hyprland.enable = true;
+    wayland.windowManager.hyprland.xwayland.enable = true;
+    wayland.windowManager.hyprland.extraConfig = "# less warnings from home-manager";
+    xdg.configFile."hypr/hyprland.conf".enable = false;
+
     home.packages = with pkgs; [
       hyprland
       rofi-wayland 
