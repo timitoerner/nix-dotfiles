@@ -148,6 +148,8 @@
     lolcat
     cowsay
     trash-cli
+    busybox
+    python3
   ];
 
   modules.virt-manager.enable = true;
