@@ -4,7 +4,10 @@
   inputs,
   lib,
   config,
-  pkgs, ... }: { # You can import other NixOS modules here
+  pkgs,
+  settings,
+  hostnames,
+  ... }: { # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -72,28 +75,27 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = settings.timezone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = settings.locale;
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
+    LC_ADDRESS = settings.localeextra;
+    LC_IDENTIFICATION = settings.localeextra;
+    LC_MEASUREMENT = settings.localeextra;
+    LC_MONETARY = settings.localeextra;
+    LC_NAME = settings.localeextra;
+    LC_NUMERIC = settings.localeextra;
+    LC_PAPER = settings.localeextra;
+    LC_TELEPHONE = settings.localeextra;
+    LC_TIME = settings.localeextra;
   };
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
+  services.xserver.xkb.layout = settings.keyboard;
+  # Configure console keymap
+  console.keyMap = settings.keyboard;
 
   hardware.bluetooth.enable = true;
 
@@ -107,15 +109,12 @@
     #jack.enable = true;
   };
 
-  # Configure console keymap
-  console.keyMap = "de";
 
-  networking.hostName = "nixos-pre-vm";
+  networking.hostName = hostnames.desktop;
 
   users.users = {
-    tim = {
+    ${settings.username} = {
       isNormalUser = true;
-      description = "Tim";
       packages = with pkgs; [];
       openssh.authorizedKeys.keys = [];
       extraGroups = [

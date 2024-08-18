@@ -5,6 +5,7 @@
   lib,
   config,
   pkgs,
+  settings,
   ...
 }: {
   # You can import other home-manager modules here
@@ -16,6 +17,7 @@
     # ./nvim.nix
     ../modules/home-manager/hyprland
     ../modules/home-manager/git
+    ../modules/home-manager/browser
     #../modules/librewolf
   ];
 
@@ -42,7 +44,7 @@
   };
 
   home = {
-    username = "tim";
+    username = settings.username;
     homeDirectory = "/home/${config.home.username}";
   };
 

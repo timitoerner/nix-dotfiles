@@ -4,7 +4,7 @@ with lib;
 let cfg = config.modules.hyprland;
 
 in {
-  options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
+  options.modules.hyprland.enable = mkEnableOption "hyprland";
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.enable = true;
     wayland.windowManager.hyprland.xwayland.enable = true;
