@@ -18,6 +18,7 @@
     ../modules/home-manager/hyprland
     ../modules/home-manager/git
     ../modules/home-manager/browser
+    ../modules/home-manager/alacritty
     #../modules/librewolf
   ];
 
@@ -55,6 +56,7 @@
   modules = {
     hyprland.enable = true;
     git.enable = true;
+    alacritty.enable = true;
     #librewolf.enable = true;
   };
 
