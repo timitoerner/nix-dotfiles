@@ -20,6 +20,7 @@
     ./hardware-configuration.nix
     
     ../modules/nixos/virt-manager
+    ../modules/nixos/steam
   ];
 
   nixpkgs = {
@@ -151,8 +152,10 @@
     python3
   ];
 
-  modules.virt-manager.enable = true;
-
+  modules = {
+    virt-manager.enable = true;
+    steam.enable = true;
+  };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
