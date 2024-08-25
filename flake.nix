@@ -8,12 +8,17 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Cosmic Desktop
+    #nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    #nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    #nixos-cosmic,
     ...
   } @inputs: 
   let
@@ -47,7 +52,10 @@
           inherit hostnames;
         };
         # > Our main nixos configuration file <
-        modules = [./nixos/configuration.nix];
+        modules = [
+          ./nixos/configuration.nix
+          
+        ];
       };
     };
 
