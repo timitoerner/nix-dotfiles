@@ -27,7 +27,7 @@
         email = "public.email.basis107@aleeas.com";
         dotfilesDir = "~/nix-dotfiles";
         wm = "hyprland";
-        browser = "ungoogled-chromium";
+        browser = "librewolf";
         terminal = "alacritty";
         editor = "nvim";
         timezone = "Europe/Berlin";
