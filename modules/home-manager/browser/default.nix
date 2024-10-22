@@ -36,7 +36,7 @@ in {
         #];
       };
     
-      home.packages = [ pkgs.${browser} ];
+      #home.packages = [ pkgs.${browser} ];
     })
     else {};
 }

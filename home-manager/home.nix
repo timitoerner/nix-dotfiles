@@ -19,7 +19,6 @@
     ../modules/home-manager/git
     ../modules/home-manager/browser
     ../modules/home-manager/alacritty
-    #../modules/librewolf
   ];
 
   nixpkgs = {
@@ -57,7 +56,6 @@
     hyprland.enable = true;
     git.enable = true;
     alacritty.enable = true;
-    #librewolf.enable = true;
   };
 
   # Enable home-manager
