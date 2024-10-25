@@ -20,6 +20,18 @@ in {
       programs.firefox = {
         enable = true;
         package = pkgs.${browser};
+        policies = {
+          ExtensionSettings = {
+            "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
+              installation_mode = "force_installed";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/78272b6fa58f4a1abaac99321d503a20@proton.me/latest.xpi";
+            };
+            "addon@darkreader.org" = {
+              installation_mode = "force_installed";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/addon@darkreader.org/latest.xpi";
+            };
+          };
+        };
         #extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         #  decentraleyes
         #  ublock-origin
