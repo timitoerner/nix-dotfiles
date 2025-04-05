@@ -10,10 +10,11 @@ in {
     xdg.configFile."alacritty/alacritty.toml".enable = false;
 
     home.packages = with pkgs; [
-      jetbrains-mono
-      (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      nerd-fonts.jetbrains-mono
+      #(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
 
     home.file.".config/alacritty/alacritty.toml".source = ./alacritty.toml;
+
   };
 }

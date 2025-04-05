@@ -7,7 +7,7 @@ in {
   options.modules.hyprland.enable = mkEnableOption "hyprland";
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland.enable = true;
-    wayland.windowManager.hyprland.xwayland.enable = true;
+    #wayland.windowManager.hyprland.xwayland.enable = true;
     wayland.windowManager.hyprland.extraConfig = "# less warnings from home-manager";
     xdg.configFile."hypr/hyprland.conf".enable = false;
 
@@ -19,8 +19,7 @@ in {
       alacritty
       wl-clipboard
       
-      jetbrains-mono
-      (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      nerd-fonts.jetbrains-mono
     ];
 
     home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
