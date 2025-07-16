@@ -13,6 +13,7 @@ in {
 
     home.packages = with pkgs; [
       hyprland
+      hyprcursor
       rofi-wayland 
       swww 
       waybar
@@ -25,5 +26,26 @@ in {
     home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
     home.file.".config/waybar/config".source = ./waybar/config;
     home.file.".config/waybar/style.css".source = ./waybar/style.css;
+
+
+    home.pointerCursor = {
+      hyprcursor.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
+
+    qt = {
+      enable = true;
+      style.name = "adwaita-dark";
+    };
+
+    gtk = {
+      enable = true;
+      theme.name = "adw-gtk3";
+      theme.package = pkgs.adw-gtk3;
+      cursorTheme.name = "Bibata-Modern-Classic";
+      cursorTheme.package = pkgs.bibata-cursors;
+    };
   };
 }
